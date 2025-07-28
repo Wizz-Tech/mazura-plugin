@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a0da52a-d92e-493f-bc92-103e2c82a998" name="Changes" comment="refactor(response): moved from mazura server">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/bishop-plugin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bishop-plugin.iml" afterDir="false" />
+    <list default="true" id="1a0da52a-d92e-493f-bc92-103e2c82a998" name="Changes" comment="refactor(deployer): args&#10;&#10;ref renamed to 'service' and image arg added">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v1/deployerplugin.go" beforeDir="false" afterPath="$PROJECT_DIR$/v1/deployerplugin.go" afterDir="false" />
     </list>
@@ -46,7 +45,7 @@
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "git-widget-placeholder": "refactor/deployer-args",
+    "git-widget-placeholder": "feature/deployment-status",
     "go.import.settings.migrated": "true",
     "last_opened_file_path": "/Users/yan.philippe",
     "node.js.detected.package.eslint": "true",
@@ -83,8 +82,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat(runtime): v0&#10;1st commit" />
-    <MESSAGE value="refactor(response): moved from mazura server" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(response): moved from mazura server" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(runtime): v0&#10;1st commit" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
