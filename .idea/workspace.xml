@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a0da52a-d92e-493f-bc92-103e2c82a998" name="Changes" comment="feat(runtime): v0&#10;1st commit">
-      <change afterPath="$PROJECT_DIR$/v1/responses/release.go" afterDir="false" />
+    <list default="true" id="1a0da52a-d92e-493f-bc92-103e2c82a998" name="Changes" comment="refactor(response): moved from mazura server">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/bishop-plugin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bishop-plugin.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1/deployerplugin.go" beforeDir="false" afterPath="$PROJECT_DIR$/v1/deployerplugin.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +46,7 @@
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "refactor/deployer-args",
     "go.import.settings.migrated": "true",
     "last_opened_file_path": "/Users/yan.philippe",
     "node.js.detected.package.eslint": "true",
@@ -60,8 +63,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-gosdk-3b128438d3f6-07d2d2d66b1e-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-251.26927.50" />
-        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-GO-251.26927.50" />
+        <option value="bundled-gosdk-3b128438d3f6-07d2d2d66b1e-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-251.27812.54" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-GO-251.27812.54" />
       </set>
     </attachedChunks>
   </component>
@@ -80,7 +83,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat(runtime): v0&#10;1st commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(runtime): v0&#10;1st commit" />
+    <MESSAGE value="refactor(response): moved from mazura server" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(response): moved from mazura server" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

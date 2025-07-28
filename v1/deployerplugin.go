@@ -1,7 +1,7 @@
 package plugin
 
 type DeployerPluginCommands interface {
-	Deploy(ref string) error
+	Deploy(service string, image string) error
 	GetRunningServices() ([]any, error)
 }
 
