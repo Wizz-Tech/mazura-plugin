@@ -1,7 +1,7 @@
 package plugin
 
 type DeployerPluginCommands interface {
-	Deploy(service string, image string) (string, error)
+	Deploy(service string, image string, statusCh chan<- string)
 	GetRunningServices() ([]any, error)
 }
 
