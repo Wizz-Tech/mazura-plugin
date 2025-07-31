@@ -27,12 +27,3 @@ type Plugin interface {
 	Description() string
 	GetConfig() []PluginConfigField
 }
-
-//type Metadata interface {
-//	Version() string
-//	Description() string
-//}
-
-//type ExtendedPlugin interface {
-//	Plugin
-//}
