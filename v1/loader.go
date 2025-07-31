@@ -36,11 +36,11 @@ func load[T any](path string) (T, error) {
 }
 
 // Load dynamically loads a Go plugin file and asserts the exported symbol.
-func Load(path string, logger Logger) {
-	if pluginsList, err := filepath.Glob(path); err == nil {
-		for _, cursor := range pluginsList {
-			if loadedPlugin, loadErr := load[ProviderPlugin](cursor); loadErr == nil {
-				_ = RegisterPlugin(RegistryList.providers, &RegistryList.mu, loadedPlugin, func(p ProviderPlugin) string {
+func Load(pluginDirectoryPath string, logger Logger) {
+	if pluginsPaths, err := filepath.Glob(pluginDirectoryPath); err == nil {
+		for _, cursor := range pluginsPaths {
+			if loadedPlugin, loadErr := load[Plugin](cursor); loadErr == nil {
+				_ = RegisterPlugin(RegistryList.plugins, &RegistryList.mu, loadedPlugin, func(p Plugin) string {
 					logger.Info(fmt.Sprintf("Registering plugin: %s", p.Name()))
 					return p.PackageName()
 				})
@@ -48,14 +48,14 @@ func Load(path string, logger Logger) {
 				logger.Error(loadErr, fmt.Sprintf("Failed to load plugin path=%s", cursor))
 			}
 
-			if loadedPlugin, loadErr := load[DeployerPlugin](cursor); loadErr == nil {
-				_ = RegisterPlugin(RegistryList.deployers, &RegistryList.mu, loadedPlugin, func(p DeployerPlugin) string {
-					logger.Info(fmt.Sprintf("Registering plugin: %s", p.Name()))
-					return p.PackageName()
-				})
-			} else {
-				logger.Error(loadErr, fmt.Sprintf("Failed to load plugin path=%s", cursor))
-			}
+			//if loadedPlugin, loadErr := load[DeployerPlugin](cursor); loadErr == nil {
+			//	_ = RegisterPlugin(RegistryList.plugins, &RegistryList.mu, loadedPlugin, func(p Plugin) string {
+			//		logger.Info(fmt.Sprintf("Registering plugin: %s", p.Name()))
+			//		return p.PackageName()
+			//	})
+			//} else {
+			//	logger.Error(loadErr, fmt.Sprintf("Failed to load plugin path=%s", cursor))
+			//}
 		}
 	}
 }
