@@ -1,7 +1,13 @@
 package plugin
 
+type DeployContext struct {
+	Service   string
+	Image     string
+	SetStatus func(status string)
+}
+
 type DeployerPluginCommands interface {
-	Deploy(service string, image string, statusCh chan<- string)
+	Deploy(ctx *DeployContext) error
 	GetRunningServices() ([]any, error)
 }
 
