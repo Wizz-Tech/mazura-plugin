@@ -1,9 +1,10 @@
 package plugin
 
 type DeployContext struct {
-	Service   string
-	Image     string
-	SetStatus func(status string)
+	Service     string
+	Image       string
+	SetStatus   func(status string)
+	RevisionURL *string
 }
 
 type DeployerPluginCommands interface {
