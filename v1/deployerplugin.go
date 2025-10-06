@@ -14,7 +14,7 @@ type DeployContext struct {
 type DeployerPluginCommands interface {
 	Deploy(ctx *DeployContext) error
 	GetRunningServices() ([]any, error)
-	GetAffectedRevisions(name string) (result responses.GetAffectedDeploymentsResponse, err error)
+	GetAffectedRevisions(name string) (result []responses.GetAffectedDeploymentsResponse, err error)
 }
 
 type DeployerPlugin interface {
