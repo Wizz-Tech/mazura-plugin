@@ -10,6 +10,7 @@ type DeployContext struct {
 type DeployerPluginCommands interface {
 	Deploy(ctx *DeployContext) error
 	GetRunningServices() ([]any, error)
+	GetAffectedRevisions(name string) error
 }
 
 type DeployerPlugin interface {
