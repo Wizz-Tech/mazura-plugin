@@ -22,4 +22,6 @@ type HTTPClient interface {
 	Post(ctx context.Context, url string, body any, out any, headers map[string]string) (*http.Response, error)
 	Put(ctx context.Context, url string, body any, out any, headers map[string]string) (*http.Response, error)
 	Delete(ctx context.Context, url string, out any, headers map[string]string) (*http.Response, error)
+
+	DoRequest(ctx context.Context, method, url string, body any, out any, headers map[string]string) (*http.Response, error)
 }
