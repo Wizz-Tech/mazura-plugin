@@ -3,8 +3,8 @@ package plugin
 import "github.com/Wizz-Tech/mazura-plugin/v1/router"
 
 type OauthCallbackContext struct {
-	Code   string
-	Router router.Router
+	Code       string
+	HttpClient router.HTTPClient
 }
 
 type ProviderPluginCommands interface {
