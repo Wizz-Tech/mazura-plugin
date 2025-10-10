@@ -1,14 +1,25 @@
 package plugin
 
-// ProviderPlugin defines methods for Git providers like GitHub, GitLab, etc.
-type ProviderPlugin interface {
-	Plugin
+import "github.com/Wizz-Tech/mazura-plugin/v1/router"
+
+type OauthCallbackContext struct {
+	Code   string
+	Router router.Router
+}
+
+type ProviderPluginCommands interface {
 	IsOauthCapable() bool
 	GenerateOauthConnectionURL(data map[string]string) (OauthURL string, err error)
-	HandleOauthCallback(data map[string]string) (callbackResult map[string]string, err error)
+	HandleOauthCallback(c *OauthCallbackContext) (callbackResult map[string]string, err error)
 	ListReleases() ([]any, error)
 	GetReleaseByTag(tag string) (any, error)
 	CreateDeployment(ref string) (any, error)
 	UpdateDeploymentStatus(id int64, state string, envURL string) (any, error)
 	GetPullRequest(number int) (any, error)
+}
+
+// ProviderPlugin defines methods for Git providers like GitHub, GitLab, etc.
+type ProviderPlugin interface {
+	Plugin
+	ProviderPluginCommands
 }
