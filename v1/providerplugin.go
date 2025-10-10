@@ -3,6 +3,8 @@ package plugin
 // ProviderPlugin defines methods for Git providers like GitHub, GitLab, etc.
 type ProviderPlugin interface {
 	Plugin
+	IsOauthCapable() bool
+	GenerateOauthConnectionURL() string
 	ListReleases() ([]any, error)
 	GetReleaseByTag(tag string) (any, error)
 	CreateDeployment(ref string) (any, error)
