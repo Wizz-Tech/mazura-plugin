@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a0da52a-d92e-493f-bc92-103e2c82a998" name="Changes" comment="refactor(loader): plugins unification&#10;&#10;one collection to rule them all">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/new_plugin_deployer.xml" beforeDir="false" />
+    <list default="true" id="efc49025-b2ab-4253-98f5-c2b317e44985" name="Changes" comment="fix(Auth): Oauth capabilities&#10;&#10;fix GenerateOauthConnectionURL args">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v1/deployerplugin.go" beforeDir="false" afterPath="$PROJECT_DIR$/v1/deployerplugin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v1/providerplugin.go" beforeDir="false" afterPath="$PROJECT_DIR$/v1/providerplugin.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,10 +24,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="true" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
-  <component name="ProjectId" id="2zuYn17t3RzZypEKY17x2hdpsQL" />
+  <component name="ProjectId" id="32pPv4VrwiweqR1VYf1x9skH5Sl" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -36,44 +38,41 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.GoLinterPluginOnboarding&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.GoLinterPluginStorageMigration&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;refactor/plugin-loader&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/yan.philippe&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/yan.philippe/GolandProjects/bishop-plugin/main.go&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preference.GoLinterConfigurable&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/v1" />
-    </key>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-gosdk-3b128438d3f6-07d2d2d66b1e-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-251.27812.54" />
-        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-GO-251.27812.54" />
+        <option value="bundled-gosdk-f466f9b0953e-146d08934cbf-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-252.26830.102" />
       </set>
     </attachedChunks>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1a0da52a-d92e-493f-bc92-103e2c82a998" name="Changes" comment="" />
-      <created>1752582587095</created>
+      <changelist id="efc49025-b2ab-4253-98f5-c2b317e44985" name="Changes" comment="feat(deployer): revision url&#10;&#10;pass a revision url" />
+      <created>1758114768042</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1752582587095</updated>
+      <updated>1758114768042</updated>
     </task>
     <servers />
   </component>
@@ -81,10 +80,15 @@
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat(runtime): v0&#10;1st commit" />
-    <MESSAGE value="refactor(deployer): deployment status&#10;&#10;experimenting with a channel" />
-    <MESSAGE value="refactor(loader): plugins unification&#10;&#10;one collection to rule them all" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(loader): plugins unification&#10;&#10;one collection to rule them all" />
+    <MESSAGE value="refactor(deployer): context (#5)&#10;&#10;pass data as own context" />
+    <MESSAGE value="feat:" />
+    <MESSAGE value="feat(deployer): revision url&#10;&#10;pass a revision url" />
+    <MESSAGE value="feat(deployer): affected revisions&#10;&#10;get affected revisions by tag" />
+    <MESSAGE value="refactor(deployer): affected revisions&#10;&#10;response definition" />
+    <MESSAGE value="fix(deployer): affected revisions&#10;&#10;response definition" />
+    <MESSAGE value="feat(Auth): Oauth capabilities&#10;&#10;Allow plugin to let user connect with git provider account" />
+    <MESSAGE value="fix(Auth): Oauth capabilities&#10;&#10;fix GenerateOauthConnectionURL args" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(Auth): Oauth capabilities&#10;&#10;fix GenerateOauthConnectionURL args" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

@@ -4,7 +4,7 @@ package plugin
 type ProviderPlugin interface {
 	Plugin
 	IsOauthCapable() bool
-	GenerateOauthConnectionURL() string
+	GenerateOauthConnectionURL(data map[string]string) (OauthURL string, err error)
 	ListReleases() ([]any, error)
 	GetReleaseByTag(tag string) (any, error)
 	CreateDeployment(ref string) (any, error)
