@@ -11,6 +11,15 @@ type DeployContext struct {
 	RevisionURL *string
 }
 
+type DeploymentStatus string
+
+const (
+	DeploymentStatusPending    DeploymentStatus = "pending"
+	DeploymentStatusSuccess    DeploymentStatus = "success"
+	DeploymentStatusInProgress DeploymentStatus = "progress"
+	DeploymentStatusFailed     DeploymentStatus = "failed"
+)
+
 type DeployerPluginCommands interface {
 	Deploy(ctx *DeployContext) error
 	GetRunningServices() ([]any, error)
