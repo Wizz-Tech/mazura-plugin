@@ -50,7 +50,6 @@ func Load(pluginDirectoryPath string, logger Logger) {
 		log.Panic(err)
 	}
 
-	var files []string
 	for _, v := range directories {
 		if v.IsDir() {
 			continue
@@ -58,7 +57,7 @@ func Load(pluginDirectoryPath string, logger Logger) {
 		if filepath.Ext(v.Name()) != ".so" {
 			continue
 		}
-		files = append(files, filepath.Join(pluginDirectoryPath, v.Name()))
+
 		foundPlugin := filepath.Join(pluginDirectoryPath, v.Name())
 		if loadedPlugin, loadErr := load[Plugin](foundPlugin); loadErr == nil {
 			_ = RegisterPlugin(RegistryList.plugins, &RegistryList.mu, loadedPlugin, func(p Plugin) string {
