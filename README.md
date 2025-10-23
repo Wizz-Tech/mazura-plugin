@@ -1,4 +1,4 @@
-# Plugin SDK for Mazura/Bishop (Go)
+# Plugin SDK for Mazura (Go)
 
 ## Overview
 This repository provides a small Go SDK for building and loading dynamically linked plugins (.so) for a host application. It defines:
