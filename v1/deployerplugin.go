@@ -7,7 +7,7 @@ import (
 type DeployContext struct {
 	Service     string
 	Image       string
-	SetStatus   func(status string)
+	SetStatus   func(status DeploymentStatus)
 	RevisionURL *string
 }
 
