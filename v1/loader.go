@@ -2,10 +2,9 @@ package plugin
 
 import (
 	"fmt"
-	"io/fs"
 	"log"
 	"os"
-	"path"
+	"path/filepath"
 	pl "plugin"
 	"reflect"
 )
@@ -46,21 +45,28 @@ func Load(pluginDirectoryPath string, logger Logger) {
 		}
 	}()
 
-	root := os.DirFS(pluginDirectoryPath)
-
-	pluginsPaths, err := fs.Glob(root, "*.so")
+	directories, err := os.ReadDir(pluginDirectoryPath)
 	if err != nil {
 		log.Panic(err)
 	}
 
-	for _, cursor := range pluginsPaths {
-		if loadedPlugin, loadErr := load[Plugin](path.Join(pluginDirectoryPath, cursor)); loadErr == nil {
+	var files []string
+	for _, v := range directories {
+		if v.IsDir() {
+			continue
+		}
+		if filepath.Ext(v.Name()) != ".so" {
+			continue
+		}
+		files = append(files, filepath.Join(pluginDirectoryPath, v.Name()))
+		foundPlugin := filepath.Join(pluginDirectoryPath, v.Name())
+		if loadedPlugin, loadErr := load[Plugin](foundPlugin); loadErr == nil {
 			_ = RegisterPlugin(RegistryList.plugins, &RegistryList.mu, loadedPlugin, func(p Plugin) string {
 				logger.Info(fmt.Sprintf("Registering plugin: %s", p.Name()))
 				return p.PackageName()
 			})
 		} else {
-			logger.Error(loadErr, fmt.Sprintf("Failed to load plugin path=%s", cursor))
+			logger.Error(loadErr, fmt.Sprintf("Failed to load plugin path=%s", foundPlugin))
 		}
 	}
 }
