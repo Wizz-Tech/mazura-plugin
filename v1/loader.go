@@ -52,6 +52,7 @@ func Load(pluginDirectoryPath string, logger Logger) {
 
 	for _, v := range directories {
 		if v.IsDir() {
+			Load(filepath.Join(pluginDirectoryPath, v.Name()), logger)
 			continue
 		}
 		if filepath.Ext(v.Name()) != ".so" {
