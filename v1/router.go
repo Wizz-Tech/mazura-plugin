@@ -1,4 +1,4 @@
-package router
+package plugin
 
 type Context interface {
 	JSON(status int, body any) error

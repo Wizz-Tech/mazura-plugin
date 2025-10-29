@@ -1,7 +1,5 @@
 package plugin
 
-import "github.com/Wizz-Tech/mazura-plugin/v1/router"
-
 // GetReleaseResponse represents the response containing details about a release.
 type GetReleaseResponse struct {
 	// Name represents the name of the release.
@@ -49,7 +47,7 @@ type OauthCallbackContext struct {
 	// This client can be configured with additional headers, query parameters,
 	// and other options to customize the request behavior.
 	// Sets the base URL of the HTTP client.
-	HttpClient router.HTTPClient
+	HttpClient HTTPClient
 }
 
 // ProviderPluginCommands is the interface for provider plugin commands.
