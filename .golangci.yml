@@ -1,0 +1,54 @@
+# https://golangci-lint.run/docs/configuration/file/
+version: "2"
+
+linters:
+  # v2 supports selecting a default set explicitly
+  # (standard | all | none | fast). You wanted “all”.
+  default: all
+formatters:
+  enable:
+    - gci
+    - gofmt
+    - gofumpt
+    - goimports
+    - golines
+  # Optional per-formatter settings go under `settings:` if needed.
+  # settings:
+  #   gofumpt:
+  #     extra-rules: true
+  exclusions:
+    warn-unused: true
+    # generated: strict   # (strict | lax | disable), uncomment if desired
+
+issues:
+  max-issues-per-linter: 50
+  fix: true
+
+output:
+  formats:
+    tab:
+      print-linter-name: true
+      colors: false
+      # path: stdout  # (stdout|stderr|path), optional
+  path-mode: "abs"    # absolute paths (matches docs)
+  sort-order:         # valid keys: file | linter | severity
+    - linter
+    - severity
+    - file
+  # show-stats: false  # optional
+
+run:
+  modules-download-mode: readonly  # readonly|vendor|mod
+  allow-parallel-runners: true
+  allow-serial-runners: true
+  # timeout: 5m
+  # relative-path-mode: gomod
+  # go: "1.23"
+
+severity:
+  # Matches the docs: use `default` (or `@linter` to keep native severities)
+  default: error
+  rules:
+    - linters:
+        - dupl
+      severity: info

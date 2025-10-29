@@ -5,16 +5,15 @@ import (
 	"sync"
 )
 
-var (
-	ErrPluginExists = errors.New("plugin already registered")
-)
+var ErrPluginExists = errors.New("plugin already registered")
 
 type PluginStore[T any] map[string]T
 
-// GetPlugin retrieves and return the according plugin if found
+// GetPlugin retrieves and return the according plugin if found.
 func GetPlugin[T any](registryList *Registry, packageName string) (*T, error) {
 	if p, ok := registryList.plugins[packageName]; ok {
 		casted := any(p).(T)
+
 		return &casted, nil
 	}
 
@@ -37,20 +36,28 @@ func InitRegistry() {
 }
 
 // RegisterPlugin adds a plugin to the registry.
-func RegisterPlugin[T any](store map[string]T, mu *sync.RWMutex, p T, getRegistrationIdentifier func(T) string) error {
+func RegisterPlugin[T any](
+	store map[string]T,
+	mu *sync.RWMutex,
+	pluginToRegister T,
+	getRegistrationIdentifier func(T) string,
+) error {
 	mu.Lock()
 	defer mu.Unlock()
 
-	name := getRegistrationIdentifier(p)
+	name := getRegistrationIdentifier(pluginToRegister)
 	if _, exists := store[name]; exists {
 		return ErrPluginExists
 	}
-	store[name] = p
+
+	store[name] = pluginToRegister
+
 	return nil
 }
 
 func GetPluginStore[T any](registryList *Registry) []T {
 	var result []T
+
 	for _, plugin := range registryList.plugins {
 		if casted, ok := any(plugin).(T); ok {
 			result = append(result, casted)

@@ -26,12 +26,15 @@ func load[T any](path string) (T, error) {
 	expectedType := reflect.TypeOf((*T)(nil)).Elem()
 	symValue := reflect.ValueOf(sym)
 
-	//fmt.Printf("Symbol type: %T\n", sym)
-	//fmt.Printf("Expected type: %s\n", expectedType)
-	//fmt.Printf("Symbol implements expected? %v\n", symValue.Type().Implements(expectedType))
+	// fmt.Printf("Symbol type: %T\n", sym)
+	// fmt.Printf("Expected type: %s\n", expectedType)
+	// fmt.Printf("Symbol implements expected? %v\n", symValue.Type().Implements(expectedType))
 
 	if !symValue.Type().Implements(expectedType) {
-		return zero, fmt.Errorf("symbol 'Plugin' does not implement expected interface %s", expectedType)
+		return zero, fmt.Errorf(
+			"symbol 'Plugin' does not implement expected interface %s",
+			expectedType,
+		)
 	}
 
 	return sym.(T), nil
@@ -50,21 +53,29 @@ func Load(pluginDirectoryPath string, logger Logger) {
 		log.Panic(err)
 	}
 
-	for _, v := range directories {
-		if v.IsDir() {
-			Load(filepath.Join(pluginDirectoryPath, v.Name()), logger)
-			continue
-		}
-		if filepath.Ext(v.Name()) != ".so" {
+	for _, pathCursor := range directories {
+		if pathCursor.IsDir() {
+			Load(filepath.Join(pluginDirectoryPath, pathCursor.Name()), logger)
+
 			continue
 		}
 
-		foundPlugin := filepath.Join(pluginDirectoryPath, v.Name())
+		if filepath.Ext(pathCursor.Name()) != ".so" {
+			continue
+		}
+
+		foundPlugin := filepath.Join(pluginDirectoryPath, pathCursor.Name())
 		if loadedPlugin, loadErr := load[Plugin](foundPlugin); loadErr == nil {
-			_ = RegisterPlugin(RegistryList.plugins, &RegistryList.mu, loadedPlugin, func(p Plugin) string {
-				logger.Info(fmt.Sprintf("Registering plugin: %s", p.Name()))
-				return p.PackageName()
-			})
+			_ = RegisterPlugin(
+				RegistryList.plugins,
+				&RegistryList.mu,
+				loadedPlugin,
+				func(p Plugin) string {
+					logger.Info(fmt.Sprintf("Registering plugin: %s", p.Name()))
+
+					return p.PackageName()
+				},
+			)
 		} else {
 			logger.Error(loadErr, fmt.Sprintf("Failed to load plugin path=%s", foundPlugin))
 		}
