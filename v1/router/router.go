@@ -9,6 +9,7 @@ type Context interface {
 
 type HandlerFunc func(ctx Context) error
 
+// Router defines methods for routing HTTP requests.
 type Router interface {
 	Get(path string, handler HandlerFunc)
 	Post(path string, handler HandlerFunc)
