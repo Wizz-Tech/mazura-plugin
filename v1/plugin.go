@@ -1,7 +1,7 @@
 package plugin
 
-// PluginConfigField represents a configuration field for a plugin.
-type PluginConfigField struct {
+// ConfigField represents a configuration field for a plugin.
+type ConfigField struct {
 	// Key is the unique identifier for the configuration field.
 	Key string `json:"key"` // config key, e.g. "apiKey"
 
@@ -54,5 +54,5 @@ type Plugin interface {
 	Description() string
 
 	// GetConfig retrieves a list of configuration fields required by the plugin, describing their properties and constraints.
-	GetConfig() []PluginConfigField
+	GetConfig() []ConfigField
 }
