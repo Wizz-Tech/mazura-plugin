@@ -1,15 +1,10 @@
-package router
+package plugin
 
 import (
 	"context"
 	"net/http"
 	"time"
 )
-
-// Logger is an interface for logging.
-type Logger interface {
-	Printf(format string, v ...any)
-}
 
 // HTTPClient is an interface for HTTP clients.
 type HTTPClient interface {

@@ -1,9 +1,5 @@
 package plugin
 
-import (
-	"github.com/Wizz-Tech/mazura-plugin/v1/router"
-)
-
 type PluginConfigField struct {
 	Key         string            `json:"key"`                // config key, e.g. "apiKey"
 	Label       string            `json:"label"`              // user-friendly label, e.g. "API Key"
@@ -21,7 +17,7 @@ type PluginConfigField struct {
 type Plugin interface {
 	PackageName() string
 	Name() string // Unique plugin name (used for identification)
-	Init(config map[string]string, r router.Router) error
+	Init(config map[string]string, r Router) error
 	Shutdown() error
 	Version() string
 	Description() string
