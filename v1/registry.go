@@ -34,6 +34,7 @@ var RegistryList *Registry
 // InitRegistry creates a new plugin registry.
 func InitRegistry() {
 	RegistryList = &Registry{
+		mu:      sync.RWMutex{},
 		plugins: make(map[string]Plugin),
 	}
 }
