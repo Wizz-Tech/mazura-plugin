@@ -30,8 +30,8 @@ type HTTPCLientSetters interface {
 	Get(ctx context.Context, url string, out any, headers map[string]string) (*http.Response, error)
 }
 
-// HttpClientMethods defines HTTP client methods for sending requests with various HTTP methods.
-type HttpClientMethods interface {
+// HTTPClientMethods defines HTTP client methods for sending requests with various HTTP methods.
+type HTTPClientMethods interface {
 	// Post performs an HTTP POST request with context, URL, body, response decoding, and headers.
 	Post(
 		ctx context.Context,
@@ -71,5 +71,5 @@ type HttpClientMethods interface {
 // HTTPClient is an interface for HTTP clients.
 type HTTPClient interface {
 	HTTPCLientSetters
-	HttpClientMethods
+	HTTPClientMethods
 }
