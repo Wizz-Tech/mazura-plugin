@@ -28,12 +28,12 @@ type Registry struct {
 	plugins Store[Plugin]
 }
 
-// RegistryList is a global pointer to the plugin registry holding loaded plugins and manages thread-safe access.
-var RegistryList *Registry
+// registryList is a global pointer to the plugin registry holding loaded plugins and manages thread-safe access.
+var registryList *Registry
 
 // InitRegistry creates a new plugin registry.
 func InitRegistry() {
-	RegistryList = &Registry{
+	registryList = &Registry{
 		mu:      sync.RWMutex{},
 		plugins: make(map[string]Plugin),
 	}
