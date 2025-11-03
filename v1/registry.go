@@ -13,7 +13,7 @@ type Store[T any] map[string]T
 
 // GetPlugin retrieves and return the according plugin if found.
 //
-//nolint:forcetypeassert
+//nolint:forcetypeassert,err113
 func GetPlugin[T any](registryList *Registry, packageName string) (*T, error) {
 	if p, ok := registryList.plugins[packageName]; ok {
 		casted := any(p).(T)
@@ -45,7 +45,7 @@ func InitRegistry() {
 
 // RegisterPlugin adds a plugin to the registry.
 //
-//nolint:forcetypeassert
+//nolint:forcetypeassert,err113
 func RegisterPlugin[T any](
 	store map[string]T,
 	mu *sync.RWMutex,

@@ -46,6 +46,8 @@ func load[T any](path string) (T, error) {
 }
 
 // Load dynamically loads a Go plugin file and asserts the exported symbol.
+//
+//nolint:forcetypeassert
 func Load(pluginDirectoryPath string, logger Logger) {
 	defer func() {
 		if err := recover(); err != nil {
