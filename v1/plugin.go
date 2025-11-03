@@ -44,7 +44,8 @@ type Plugin interface {
 	// Init initializes the plugin with the provided configuration and router, returning an error if initialization fails.
 	Init(config map[string]string, r Router) error
 
-	// Shutdown gracefully stops the plugin, releasing any allocated resources or performing cleanup tasks. Returns an error if the process fails.
+	// Shutdown gracefully stops the plugin, releasing any allocated resources or
+	// performing cleanup tasks. Returns an error if the process fails.
 	Shutdown() error
 
 	// Version returns the current version of the plugin as a string.
@@ -53,6 +54,7 @@ type Plugin interface {
 	// Description returns a brief explanation of the plugin's functionality or purpose as a string.
 	Description() string
 
-	// GetConfig retrieves a list of configuration fields required by the plugin, describing their properties and constraints.
+	// GetConfig retrieves a list of configuration fields required by the plugin,
+	// describing their properties and constraints.
 	GetConfig() []ConfigField
 }
