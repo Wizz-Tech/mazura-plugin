@@ -7,7 +7,8 @@ import (
 
 var ErrPluginExists = errors.New("plugin already registered")
 
-type PluginStore[T any] map[string]T
+// Store is a generic map-based type for storing keyed values, parameterized by any data type provided.
+type Store[T any] map[string]T
 
 // GetPlugin retrieves and return the according plugin if found.
 func GetPlugin[T any](registryList *Registry, packageName string) (*T, error) {
@@ -23,7 +24,7 @@ func GetPlugin[T any](registryList *Registry, packageName string) (*T, error) {
 // Registry holds loaded plugins.
 type Registry struct {
 	mu      sync.RWMutex
-	plugins PluginStore[Plugin]
+	plugins Store[Plugin]
 }
 
 var RegistryList *Registry
@@ -55,6 +56,9 @@ func RegisterPlugin[T any](
 	return nil
 }
 
+// GetPluginStore retrieves all plugins of a specified type T from the given
+// registry. It iterates through the registry's plugin store and casts each
+// plugin to the desired type, adding valid ones to the result.
 func GetPluginStore[T any](registryList *Registry) []T {
 	var result []T
 
