@@ -5,6 +5,7 @@ import (
 	"sync"
 )
 
+// ErrPluginExists indicates that a plugin with the specified identifier is already registered in the registry.
 var ErrPluginExists = errors.New("plugin already registered")
 
 // Store is a generic map-based type for storing keyed values, parameterized by any data type provided.
@@ -27,6 +28,7 @@ type Registry struct {
 	plugins Store[Plugin]
 }
 
+// RegistryList is a global pointer to the plugin registry holding loaded plugins and manages thread-safe access.
 var RegistryList *Registry
 
 // InitRegistry creates a new plugin registry.

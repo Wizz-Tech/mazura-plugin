@@ -32,6 +32,8 @@ type GetReleaseResponse struct {
 	Notes string `json:"notes,omitempty"`
 }
 
+// OauthCallbackContext represents the context data for handling OAuth callback requests.
+// It provides the authorization code and HTTP client for processing the callback.
 type OauthCallbackContext struct {
 	//
 	// Represents a unique identifier for an OAuth callback request.
@@ -47,7 +49,7 @@ type OauthCallbackContext struct {
 	// This client can be configured with additional headers, query parameters,
 	// and other options to customize the request behavior.
 	// Sets the base URL of the HTTP client.
-	HttpClient HTTPClient
+	HTTPClient HTTPClient
 }
 
 // ProviderPluginCommands is the interface for provider plugin commands.

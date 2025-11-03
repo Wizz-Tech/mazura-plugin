@@ -23,7 +23,8 @@ type HTTPClient interface {
 	// Get sends an HTTP GET request to the specified URL with optional headers and unmarshals the response into out.
 	Get(ctx context.Context, url string, out any, headers map[string]string) (*http.Response, error)
 
-	// Post sends an HTTP POST request to the specified URL with the given body, headers, and decodes the response into out.
+	// Post sends an HTTP POST request to the specified URL with the given body,
+	// headers, and decodes the response into out.
 	Post(
 		ctx context.Context,
 		url string,
