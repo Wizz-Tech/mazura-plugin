@@ -1,3 +1,4 @@
+//nolint:revive
 package plugin
 
 // GetAffectedDeploymentsResponse represents a deployment affected by a revision.
