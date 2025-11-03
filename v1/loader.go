@@ -67,8 +67,8 @@ func Load(pluginDirectoryPath string, logger Logger) {
 		foundPlugin := filepath.Join(pluginDirectoryPath, pathCursor.Name())
 		if loadedPlugin, loadErr := load[Plugin](foundPlugin); loadErr == nil {
 			_ = RegisterPlugin(
-				registryList.plugins,
-				&registryList.mu,
+				RegistryList.plugins,
+				&RegistryList.mu,
 				loadedPlugin,
 				func(p Plugin) string {
 					logger.Info(fmt.Sprintf("Registering plugin: %s", p.Name()))
