@@ -6,8 +6,7 @@ import (
 	"time"
 )
 
-// HTTPClient is an interface for HTTP clients.
-type HTTPClient interface {
+type HTTPCLientSetters interface {
 	// SetBaseURL sets the base URL for the HTTP client.
 	SetBaseURL(base string) HTTPClient
 	// SetHeader sets a header for the HTTP client.
@@ -22,7 +21,9 @@ type HTTPClient interface {
 	SetLogger(l Logger) HTTPClient
 	// Get sends an HTTP GET request to the specified URL with optional headers and unmarshals the response into out.
 	Get(ctx context.Context, url string, out any, headers map[string]string) (*http.Response, error)
+}
 
+type HttpClientMethods interface {
 	// Post sends an HTTP POST request to the specified URL with the given body,
 	// headers, and decodes the response into out.
 	Post(
@@ -53,4 +54,10 @@ type HTTPClient interface {
 		out any,
 		headers map[string]string,
 	) (*http.Response, error)
+}
+
+// HTTPClient is an interface for HTTP clients.
+type HTTPClient interface {
+	HTTPCLientSetters
+	HttpClientMethods
 }
