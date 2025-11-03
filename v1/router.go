@@ -1,6 +1,6 @@
 package plugin
 
-// Context represents an abstraction for handling HTTP requests and responses.
+// RouterContext Context represents an abstraction for handling HTTP requests and responses.
 type RouterContext interface {
 	// JSON sends a JSON response with the specified status code and body.
 	JSON(status int, body any) error
@@ -15,7 +15,7 @@ type RouterContext interface {
 	Param(key string) string
 }
 
-// HandlerFunc defines a function type for handling HTTP requests using a context and returning an error, if any.
+// RouterFuncHandler defines a function type for handling HTTP requests using a context and returning an error, if any.
 type RouterFuncHandler func(ctx RouterContext) error
 
 // Router defines methods for routing HTTP requests.
