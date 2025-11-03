@@ -13,7 +13,7 @@ import (
 // and ensures it implements the expected type T. Returns the loaded plugin of
 // type T or an error if the loading or type assertion fails.
 //
-//nolint:forcetypeassert,err113
+//nolint:forcetypeassert,ireturn,err113
 func load[T any](path string) (T, error) {
 	var zero T
 
