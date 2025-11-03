@@ -45,7 +45,7 @@ func InitRegistry() {
 
 // RegisterPlugin adds a plugin to the registry.
 //
-//nolint:forcetypeassert,err113
+//nolint:err113
 func RegisterPlugin[T any](
 	store map[string]T,
 	mu *sync.RWMutex,
